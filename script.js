@@ -21,13 +21,33 @@ function sendMessage() {
 }
 
 /* ============================= */
-/* Dark Mode Toggle */
+/* Dark Mode Permanent Toggle */
 /* ============================= */
+
+// Get stored theme from localStorage
+let storedTheme = localStorage.getItem("theme");
+
+// Apply stored theme
+if(storedTheme){
+    document.body.classList.add(storedTheme);
+}
+
+// Update button text based on current theme
 const themeBtn = document.getElementById("theme-toggle");
 if(themeBtn){
+    themeBtn.textContent = document.body.classList.contains("dark") ? "☀️ Light Mode" : "🌙 Dark Mode";
+
     themeBtn.onclick = () => {
         document.body.classList.toggle("dark");
-        themeBtn.textContent = document.body.classList.contains("dark") ? "☀️ Light Mode" : "🌙 Dark Mode";
+
+        // Save theme to localStorage
+        if(document.body.classList.contains("dark")){
+            localStorage.setItem("theme", "dark");
+            themeBtn.textContent = "☀️ Light Mode";
+        } else {
+            localStorage.setItem("theme", ""); // empty = light mode
+            themeBtn.textContent = "🌙 Dark Mode";
+        }
     }
 }
 
