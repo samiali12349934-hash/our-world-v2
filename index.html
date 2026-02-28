@@ -3,8 +3,62 @@
 <head>
     <title>Our World V2 - Home</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Center everything on home page */
+        body.home {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .home-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .world-image {
+            width: 50%;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        .lets-go-btn {
+            padding: 15px 40px;
+            font-size: 20px;
+            border: none;
+            border-radius: 10px;
+            background: #388e3c;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Account avatar and name */
+        .account-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 30px;
+            justify-content: center;
+        }
+
+        .account-info img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 3px solid #388e3c;
+        }
+
+        .account-info span {
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
 </head>
-<body>
+<body class="home">
 
 <!-- Navbar -->
 <nav>
@@ -22,16 +76,20 @@
 </nav>
 
 <!-- Minimal Landing Section -->
-<header style="text-align:center; padding:80px 20px;">
-    <h1 style="font-size:48px; margin-bottom:30px;">Welcome to Our World</h1>
-    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" alt="World Image" style="width:50%; border-radius:10px; margin-bottom:30px;">
+<div class="home-header">
+    <h1>Welcome to Our World</h1>
+    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" alt="World Image" class="world-image">
     <br>
     <a href="climate.html">
-        <button style="padding:15px 40px; font-size:20px; border:none; border-radius:10px; background:#388e3c; color:white; cursor:pointer;">
-            Let's Go
-        </button>
+        <button class="lets-go-btn">Let's Go</button>
     </a>
-</header>
+</div>
+
+<!-- Account info with circular avatar -->
+<div class="account-info">
+    <img src="https://i.imgur.com/4Z7bZ5Y.png" alt="Owner Avatar">
+    <span>Sami Ali</span>
+</div>
 
 <!-- Background Music -->
 <audio id="background-music" loop>
