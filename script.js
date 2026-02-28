@@ -1,6 +1,6 @@
-// -------------------
-// Chat Functionality
-// -------------------
+/* ============================= */
+/* Chat Functionality */
+/* ============================= */
 function sendMessage() {
     const input = document.getElementById("message-input");
     const text = input.value.trim();
@@ -20,9 +20,9 @@ function sendMessage() {
     document.getElementById("chat-messages").scrollTop = document.getElementById("chat-messages").scrollHeight;
 }
 
-// -------------------
-// Dark Mode Toggle
-// -------------------
+/* ============================= */
+/* Dark Mode Toggle */
+/* ============================= */
 const themeBtn = document.getElementById("theme-toggle");
 if(themeBtn){
     themeBtn.onclick = () => {
@@ -31,9 +31,9 @@ if(themeBtn){
     }
 }
 
-// -------------------
-// Music Toggle
-// -------------------
+/* ============================= */
+/* Music Toggle */
+/* ============================= */
 const musicBtn = document.getElementById("music-toggle");
 const music = document.getElementById("background-music");
 if(musicBtn && music){
