@@ -89,6 +89,12 @@
             background: rgba(0,0,0,0.6);
             justify-content: center;
             align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
         }
 
         .modal-content {
@@ -98,7 +104,9 @@
             width: 90%;
             max-width: 400px;
             text-align: left;
-            position: relative;
+            position: absolute;
+            cursor: move;
+            transition: transform 0.3s, background 0.3s, color 0.3s;
         }
 
         body.dark .modal-content {
@@ -188,7 +196,7 @@
 
 <!-- Modal -->
 <div class="modal" id="edit-modal">
-    <div class="modal-content">
+    <div class="modal-content" id="modal-content">
         <span class="close-btn" id="close-modal">&times;</span>
         <h3>Edit Profile</h3>
         <label for="name">Name:</label>
@@ -218,6 +226,8 @@
     const editEmail = document.getElementById('edit-email');
     const editAvatar = document.getElementById('edit-avatar');
 
+    const modalContent = document.getElementById('modal-content');
+
     editBtn.onclick = () => modal.style.display = 'flex';
     closeModal.onclick = () => modal.style.display = 'none';
     window.onclick = (e) => { if(e.target == modal) modal.style.display = 'none'; }
@@ -230,6 +240,22 @@
         modal.style.display = 'none';
         alert('Profile updated successfully!');
     }
+
+    // Draggable modal
+    let isDragging = false, offsetX, offsetY;
+    modalContent.addEventListener('mousedown', (e)=>{
+        isDragging = true;
+        offsetX = e.clientX - modalContent.offsetLeft;
+        offsetY = e.clientY - modalContent.offsetTop;
+        modalContent.style.transition = 'none';
+    });
+    document.addEventListener('mouseup', ()=>{ isDragging=false; modalContent.style.transition = 'transform 0.3s'; });
+    document.addEventListener('mousemove', (e)=>{
+        if(isDragging){
+            modalContent.style.left = (e.clientX - offsetX) + 'px';
+            modalContent.style.top = (e.clientY - offsetY) + 'px';
+        }
+    });
 </script>
 </body>
 </html>
