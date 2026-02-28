@@ -1,4 +1,6 @@
-/* General body styles */
+/* ============================= */
+/* Global Styles */
+/* ============================= */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -7,13 +9,14 @@ body {
     transition: background 0.3s, color 0.3s;
 }
 
-/* Dark Mode */
 body.dark {
     background: #121212;
     color: #f0f0f0;
 }
 
+/* ============================= */
 /* Navbar */
+/* ============================= */
 nav {
     background: #1b5e20;
     padding: 15px;
@@ -32,7 +35,9 @@ nav a, nav button {
     cursor: pointer;
 }
 
-/* Header */
+/* ============================= */
+/* Header / Avatar */
+/* ============================= */
 header {
     text-align: center;
     padding: 40px;
@@ -40,7 +45,6 @@ header {
     color: white;
 }
 
-/* Avatar only on Home */
 .avatar {
     width: 100px;
     border-radius: 50%;
@@ -52,7 +56,9 @@ header {
     border-radius: 50%;
 }
 
+/* ============================= */
 /* Sections */
+/* ============================= */
 section {
     background: white;
     margin: 20px;
@@ -66,19 +72,19 @@ body.dark section {
     color: #f0f0f0;
 }
 
-/* Images in sections */
 section img {
     width: 100%;
     border-radius: 10px;
     margin-bottom: 15px;
 }
 
-/* Paragraph styling */
 section p {
     line-height: 1.6;
 }
 
-/* Chat container */
+/* ============================= */
+/* Chat Container */
+/* ============================= */
 .chat-container {
     width: 90%;
     max-width: 500px;
@@ -86,7 +92,7 @@ section p {
     padding: 20px;
     border-radius: 10px;
     background: white;
-    box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     transition: background 0.3s, color 0.3s;
 }
 
@@ -95,7 +101,6 @@ body.dark .chat-container {
     color: #f0f0f0;
 }
 
-/* Chat messages */
 #chat-messages {
     height: 300px;
     overflow-y: auto;
@@ -110,7 +115,6 @@ body.dark #chat-messages {
     background: #2a2a2a;
 }
 
-/* Chat input */
 .chat-input {
     display: flex;
 }
@@ -131,7 +135,9 @@ body.dark #chat-messages {
     cursor: pointer;
 }
 
-/* Country cards */
+/* ============================= */
+/* Country Cards */
+/* ============================= */
 .country-card {
     background: #c8e6c9;
     margin: 10px 0;
@@ -139,7 +145,16 @@ body.dark #chat-messages {
     border-radius: 8px;
 }
 
-/* Responsive for mobile */
+.country-card img {
+    width: 50px;
+    height: auto;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+/* ============================= */
+/* Responsive for Mobile */
+/* ============================= */
 @media(max-width: 600px){
     section {
         margin: 10px;
