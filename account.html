@@ -4,9 +4,6 @@
     <title>Account - Our World V2</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* ============================= */
-        /* Account Page Styles */
-        /* ============================= */
         section {
             max-width: 600px;
             margin: 40px auto;
@@ -15,20 +12,11 @@
             border-radius: 12px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             text-align: center;
-            transition: background 0.3s, color 0.3s;
         }
 
         body.dark section {
             background: #1e1e1e;
-            color: #f0f0f0;
-        }
-
-        .account-info {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 20px;
+            color: white;
         }
 
         .account-info img {
@@ -36,51 +24,18 @@
             height: 120px;
             border-radius: 50%;
             border: 4px solid #388e3c;
-            transition: border 0.3s;
         }
 
-        body.dark .account-info img {
-            border: 4px solid #1b5e20;
-        }
-
-        .account-info span {
-            font-size: 26px;
-            font-weight: bold;
-        }
-
-        section p {
-            font-size: 18px;
-            line-height: 1.6;
-            margin: 10px 0;
-        }
-
-        /* Edit Profile Button */
         .edit-btn {
-            padding: 12px 25px;
-            font-size: 18px;
-            border: none;
-            border-radius: 8px;
+            padding: 10px 20px;
             background: #388e3c;
             color: white;
+            border: none;
+            border-radius: 8px;
             cursor: pointer;
-            margin-top: 20px;
-            transition: all 0.3s;
+            margin-top: 15px;
         }
 
-        .edit-btn:hover {
-            background: #2e7d32;
-            transform: scale(1.05);
-        }
-
-        body.dark .edit-btn {
-            background: #1b5e20;
-        }
-
-        body.dark .edit-btn:hover {
-            background: #145214;
-        }
-
-        /* Modal Styles */
         .modal {
             display: none;
             position: fixed;
@@ -89,173 +44,98 @@
             background: rgba(0,0,0,0.6);
             justify-content: center;
             align-items: center;
-            animation: fadeIn 0.3s ease;
-        }
-
-        @keyframes fadeIn {
-            from {opacity: 0;}
-            to {opacity: 1;}
         }
 
         .modal-content {
             background: white;
-            padding: 30px;
+            padding: 25px;
             border-radius: 12px;
             width: 90%;
             max-width: 400px;
-            text-align: left;
-            position: absolute;
-            cursor: move;
-            transition: transform 0.3s, background 0.3s, color 0.3s;
         }
 
         body.dark .modal-content {
             background: #1e1e1e;
-            color: #f0f0f0;
-        }
-
-        .modal-content label {
-            display: block;
-            margin-top: 15px;
-            font-weight: bold;
+            color: white;
         }
 
         .modal-content input {
             width: 100%;
             padding: 8px;
-            margin-top: 5px;
+            margin-top: 10px;
             border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-
-        .modal-content button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
-            background: #388e3c;
-            color: white;
-        }
-
-        body.dark .modal-content button {
-            background: #1b5e20;
-        }
-
-        .close-btn {
-            position: absolute;
-            top:10px;
-            right:15px;
-            font-size:22px;
-            cursor:pointer;
-        }
-
-        /* Responsive */
-        @media(max-width:600px){
-            section { width: 90%; padding: 20px; }
-            .account-info img { width: 100px; height: 100px; }
-            .edit-btn { font-size:16px; padding:10px 20px; }
         }
     </style>
 </head>
 <body>
 
-<!-- Navbar -->
 <nav>
     <a href="index.html">Home</a>
-    <a href="climate.html">Climate</a>
-    <a href="pollution.html">Pollution</a>
-    <a href="nature.html">Nature</a>
-    <a href="deforestation.html">Deforestation</a>
-    <a href="countries.html">Countries</a>
-    <a href="quiz.html">Quiz</a>
     <a href="account.html">Account</a>
-    <a href="chat.html">Chat</a>
     <button id="theme-toggle">🌙 Dark Mode</button>
-    <button id="music-toggle">▶️ Music</button>
 </nav>
 
-<!-- Account Section -->
 <section>
     <h2>User Profile</h2>
-    <div class="account-info">
-        <img id="avatar-img" src="https://i.imgur.com/4Z7bZ5Y.png" alt="Owner Avatar">
-        <span id="user-name">Sami Ali</span>
-    </div>
-    <p><strong>Email:</strong> <span id="user-email">example@example.com</span></p>
-    <p><strong>Role:</strong> Student / Developer</p>
-    <p>
-        Welcome to your account page! Here you can view your profile and activity.
-        You can expand this section later to include features like edit profile,
-        change avatar, view quiz results, or other personal settings.
-    </p>
 
-    <!-- Edit Profile Button -->
-    <button class="edit-btn" id="edit-profile-btn">Edit Profile</button>
+    <div class="account-info">
+        <img id="avatar-img" src="https://i.imgur.com/4Z7bZ5Y.png">
+        <h3 id="user-name">Guest</h3>
+    </div>
+
+    <p>Email: <span id="user-email">Not set</span></p>
+
+    <button class="edit-btn" id="edit-btn">Edit Profile</button>
 </section>
 
-<!-- Modal -->
-<div class="modal" id="edit-modal">
-    <div class="modal-content" id="modal-content">
-        <span class="close-btn" id="close-modal">&times;</span>
+<div class="modal" id="modal">
+    <div class="modal-content">
         <h3>Edit Profile</h3>
-        <label for="name">Name:</label>
-        <input type="text" id="edit-name" value="Sami Ali">
-        <label for="email">Email:</label>
-        <input type="email" id="edit-email" value="example@example.com">
-        <label for="avatar">Avatar URL:</label>
-        <input type="text" id="edit-avatar" value="https://i.imgur.com/4Z7bZ5Y.png">
-        <button id="save-profile">Save</button>
+        <input type="text" id="edit-name" placeholder="Enter your name">
+        <input type="email" id="edit-email" placeholder="Enter your email">
+        <input type="text" id="edit-avatar" placeholder="Avatar image URL">
+        <button onclick="saveProfile()">Save</button>
     </div>
 </div>
 
-<!-- Scripts -->
-<script src="script.js"></script>
 <script>
-    // Modal open/close
-    const editBtn = document.getElementById('edit-profile-btn');
-    const modal = document.getElementById('edit-modal');
-    const closeModal = document.getElementById('close-modal');
-    const saveBtn = document.getElementById('save-profile');
+    const modal = document.getElementById("modal");
 
-    const userName = document.getElementById('user-name');
-    const userEmail = document.getElementById('user-email');
-    const avatarImg = document.getElementById('avatar-img');
+    document.getElementById("edit-btn").onclick = () => {
+        modal.style.display = "flex";
+    };
 
-    const editName = document.getElementById('edit-name');
-    const editEmail = document.getElementById('edit-email');
-    const editAvatar = document.getElementById('edit-avatar');
+    window.onclick = (e) => {
+        if(e.target == modal){
+            modal.style.display = "none";
+        }
+    };
 
-    const modalContent = document.getElementById('modal-content');
+    function saveProfile(){
+        const name = document.getElementById("edit-name").value;
+        const email = document.getElementById("edit-email").value;
+        const avatar = document.getElementById("edit-avatar").value;
 
-    editBtn.onclick = () => modal.style.display = 'flex';
-    closeModal.onclick = () => modal.style.display = 'none';
-    window.onclick = (e) => { if(e.target == modal) modal.style.display = 'none'; }
+        if(name) localStorage.setItem("name", name);
+        if(email) localStorage.setItem("email", email);
+        if(avatar) localStorage.setItem("avatar", avatar);
 
-    // Save profile changes
-    saveBtn.onclick = () => {
-        userName.textContent = editName.value;
-        userEmail.textContent = editEmail.value;
-        avatarImg.src = editAvatar.value;
-        modal.style.display = 'none';
-        alert('Profile updated successfully!');
+        loadProfile();
+        modal.style.display = "none";
     }
 
-    // Draggable modal
-    let isDragging = false, offsetX, offsetY;
-    modalContent.addEventListener('mousedown', (e)=>{
-        isDragging = true;
-        offsetX = e.clientX - modalContent.offsetLeft;
-        offsetY = e.clientY - modalContent.offsetTop;
-        modalContent.style.transition = 'none';
-    });
-    document.addEventListener('mouseup', ()=>{ isDragging=false; modalContent.style.transition = 'transform 0.3s'; });
-    document.addEventListener('mousemove', (e)=>{
-        if(isDragging){
-            modalContent.style.left = (e.clientX - offsetX) + 'px';
-            modalContent.style.top = (e.clientY - offsetY) + 'px';
-        }
-    });
+    function loadProfile(){
+        const name = localStorage.getItem("name");
+        const email = localStorage.getItem("email");
+        const avatar = localStorage.getItem("avatar");
+
+        if(name) document.getElementById("user-name").textContent = name;
+        if(email) document.getElementById("user-email").textContent = email;
+        if(avatar) document.getElementById("avatar-img").src = avatar;
+    }
+
+    loadProfile();
 </script>
+
 </body>
 </html>
