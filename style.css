@@ -1,236 +1,120 @@
 /* ============================= */
-/* Global Styles */
+/* GLOBAL SETTINGS */
 /* ============================= */
+
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
-    background: #f2f2f2;
-    color: #333;
-    transition: background 0.3s, color 0.3s;
-}
-
-body.dark {
-    background: #121212;
-    color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #222;
 }
 
 /* ============================= */
-/* Navbar */
+/* NAVIGATION BAR */
 /* ============================= */
+
 nav {
-    background: #1b5e20;
+    background: #222;
     padding: 15px;
     text-align: center;
-    transition: background 0.3s;
 }
 
-body.dark nav {
-    background: #004d00;
-}
-
-nav a, nav button {
+nav a {
     color: white;
-    margin: 5px;
     text-decoration: none;
+    margin: 0 12px;
     font-weight: bold;
-    background: #388e3c;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s;
+    font-size: 16px;
+    transition: 0.3s;
 }
 
-body.dark nav a, body.dark nav button {
-    background: #1b5e20;
+nav a:hover {
+    color: #4caf50;
 }
 
 /* ============================= */
-/* Header / Home Page */
+/* MAIN SECTION */
 /* ============================= */
-body.home {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    text-align: center;
-    padding: 0 20px;
-}
 
-.home-header h1 {
-    font-size: 48px;
-    margin-bottom: 20px;
-}
-
-.world-image {
-    width: 50%;
-    border-radius: 15px;
-    margin-bottom: 30px;
-    border: 5px solid #388e3c;
-    transition: border 0.3s;
-}
-
-body.dark .world-image {
-    border: 5px solid #1b5e20;
-}
-
-.lets-go-btn {
-    padding: 15px 40px;
-    font-size: 20px;
-    border: none;
+section {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 25px;
+    background: white;
     border-radius: 10px;
-    background: #388e3c;
-    color: white;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-body.dark .lets-go-btn {
-    background: #1b5e20;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    line-height: 1.7;
 }
 
 /* ============================= */
-/* Account avatar and name */
+/* HEADINGS */
 /* ============================= */
-.account-info {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 28px;
+}
+
+h2 {
     margin-top: 30px;
-    justify-content: center;
+    color: #2e7d32;
+    font-size: 22px;
 }
+
+/* ============================= */
+/* PARAGRAPHS */
+/* ============================= */
+
+p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+/* ============================= */
+/* ACCOUNT PAGE IMAGE */
+/* ============================= */
 
 .account-info img {
-    width: 70px;
-    height: 70px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
-    border: 3px solid #388e3c;
-    transition: border 0.3s;
-}
-
-body.dark .account-info img {
-    border: 3px solid #1b5e20;
-}
-
-.account-info span {
-    font-size: 20px;
-    font-weight: bold;
+    border: 4px solid #388e3c;
 }
 
 /* ============================= */
-/* Sections */
+/* BUTTONS */
 /* ============================= */
-section {
-    background: white;
-    margin: 20px;
-    padding: 30px;
-    border-radius: 10px;
-    transition: background 0.3s, color 0.3s;
-}
 
-body.dark section {
-    background: #1e1e1e;
-    color: #f0f0f0;
-}
-
-section img {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 15px;
-}
-
-section p {
-    line-height: 1.6;
-}
-
-/* ============================= */
-/* Chat Container */
-/* ============================= */
-.chat-container {
-    width: 90%;
-    max-width: 500px;
-    margin: 30px auto;
-    padding: 20px;
-    border-radius: 10px;
-    background: white;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    transition: background 0.3s, color 0.3s;
-}
-
-body.dark .chat-container {
-    background: #1e1e1e;
-    color: #f0f0f0;
-}
-
-#chat-messages {
-    height: 300px;
-    overflow-y: auto;
-    padding: 10px;
-    border: 1px solid #ddd;
-    margin-bottom: 10px;
-    border-radius: 8px;
-    background: #f9f9f9;
-    transition: background 0.3s;
-}
-
-body.dark #chat-messages {
-    background: #2a2a2a;
-}
-
-.chat-input {
-    display: flex;
-}
-
-.chat-input input {
-    flex: 1;
-    padding: 10px;
-    border-radius: 5px 0 0 5px;
-    border: 1px solid #ccc;
-}
-
-.chat-input button {
-    padding: 10px 15px;
-    border-radius: 0 5px 5px 0;
+button {
+    padding: 10px 20px;
     border: none;
+    border-radius: 6px;
+    cursor: pointer;
     background: #388e3c;
     color: white;
-    cursor: pointer;
-    transition: background 0.3s;
+    font-weight: bold;
+    transition: 0.3s;
 }
 
-body.dark .chat-input button {
-    background: #1b5e20;
-}
-
-/* ============================= */
-/* Country Cards */
-/* ============================= */
-.country-card {
-    background: #c8e6c9;
-    margin: 10px 0;
-    padding: 15px;
-    border-radius: 8px;
-    transition: background 0.3s;
-}
-
-body.dark .country-card {
-    background: #2a4d2a;
-}
-
-.country-card img {
-    width: 50px;
-    height: auto;
-    vertical-align: middle;
-    margin-right: 10px;
+button:hover {
+    background: #2e7d32;
 }
 
 /* ============================= */
-/* Responsive for Mobile */
+/* RESPONSIVE */
 /* ============================= */
-@media(max-width:600px){
-    section { margin:10px; padding:20px; }
-    .chat-container { width:95%; padding:15px; }
-    nav a, nav button { margin:3px; padding:6px 10px; }
-    .world-image { width:80%; }
+
+@media (max-width: 768px) {
+
+    nav a {
+        display: block;
+        margin: 8px 0;
+    }
+
+    section {
+        margin: 20px;
+        padding: 15px;
+    }
+
 }
