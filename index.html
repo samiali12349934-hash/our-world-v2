@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Our World</title>
-    <link rel="stylesheet" href="style.css">
+<title>Our World</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <nav>
 <a href="index.html">Home</a>
-<a href="continents.html">Continents</a>
-<a href="countries.html">Countries</a>
 <a href="climate.html">Climate</a>
 <a href="pollution.html">Pollution</a>
 <a href="nature.html">Nature</a>
@@ -22,9 +20,18 @@
 </nav>
 
 <div class="hero">
-<h1>Welcome To Our World</h1>
-<button onclick="location.href='continents.html'">Explore Now</button>
+<h1>Explore Our World</h1>
+<p>Climate, History, Nature & Global Events</p>
+<button onclick="location.href='climate.html'">Start Exploring</button>
 </div>
+
+<button class="toggle-btn" onclick="toggleDark()">🌙</button>
+
+<script>
+function toggleDark(){
+document.body.classList.toggle("dark");
+}
+</script>
 
 </body>
 </html>
