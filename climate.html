@@ -1,45 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Climate - Our World</title>
+<title>Climate</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <nav>
-<a href="index.html">Home</a>
-<a href="continents.html">Continents</a>
-<a href="countries.html">Countries</a>
-<a href="climate.html">Climate</a>
-<a href="pollution.html">Pollution</a>
-<a href="nature.html">Nature</a>
-<a href="deforestation.html">Deforestation</a>
-<a href="ww1.html">WW1</a>
-<a href="ww2.html">WW2</a>
-<a href="coldwar.html">Cold War</a>
-<a href="adwa.html">Adwa</a>
-<a href="account.html">Account</a>
+<div class="logo">Our World</div>
+<div class="menu-toggle">☰</div>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="climate.html">Climate</a></li>
+<li><a href="pollution.html">Pollution</a></li>
+<li><a href="nature.html">Nature</a></li>
+<li><a href="deforestation.html">Deforestation</a></li>
+<li><a href="ww1.html">WW1</a></li>
+<li><a href="ww2.html">WW2</a></li>
+<li><a href="coldwar.html">Cold War</a></li>
+<li><a href="adwa.html">Adwa</a></li>
+<li><a href="account.html">Account</a></li>
+</ul>
 </nav>
 
 <section>
-<h1>Climate & Climate Change</h1>
+<h1>Climate Change</h1>
 <img src="images/climate.jpg">
 
-<h2>Climate vs Weather</h2>
-<p>Weather describes short-term atmospheric conditions like rain or sunshine. Climate refers to long-term weather patterns over many years.</p>
+<p>Climate change refers to long-term shifts in temperature and weather patterns.</p>
 
-<h2>Types of Climate</h2>
-<p>Major climate zones include Tropical, Dry, Temperate, Continental, and Polar. Each zone has unique temperature and rainfall patterns.</p>
-
-<h2>Causes of Climate Change</h2>
-<p>Burning fossil fuels, deforestation, and industrial activities increase greenhouse gases like carbon dioxide. These gases trap heat in the atmosphere.</p>
-
-<h2>Global Effects</h2>
-<p>Climate change causes melting glaciers, rising sea levels, extreme storms, droughts, and disruption of ecosystems.</p>
-
-<h2>Solutions</h2>
-<p>Renewable energy, reforestation, reducing carbon emissions, and sustainable living are key solutions.</p>
-
+<div class="quiz">
+<h2>Quick Quiz</h2>
+<p>What causes global warming?</p>
+<button onclick="checkAnswer('wrong')">Natural Seasons</button>
+<button onclick="checkAnswer('correct')">Greenhouse Gases</button>
+</div>
 </section>
+
+<button class="toggle-btn" onclick="toggleDark()">🌙</button>
+<script src="script.js"></script>
 </body>
 </html>
