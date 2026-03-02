@@ -2,13 +2,15 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
+scroll-behavior:smooth;
 }
 
 body{
 font-family:'Segoe UI',sans-serif;
-background:linear-gradient(135deg,#eef2f3,#ffffff);
+background:#f5f7fa;
 color:#222;
 transition:0.4s;
+overflow-x:hidden;
 }
 
 /* DARK MODE */
@@ -21,31 +23,52 @@ body.dark nav{
 background:#000;
 }
 
-body.dark section{
-background:#1c1c1c;
-}
-
 /* NAVBAR */
 nav{
-position:sticky;
+position:fixed;
+width:100%;
 top:0;
 background:rgba(0,0,0,0.85);
-backdrop-filter:blur(10px);
-padding:18px;
-text-align:center;
+backdrop-filter:blur(12px);
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
 z-index:1000;
 }
 
-nav a{
+.logo{
+color:white;
+font-size:20px;
+font-weight:bold;
+}
+
+nav ul{
+list-style:none;
+display:flex;
+}
+
+nav ul li{
+margin-left:20px;
+}
+
+nav ul li a{
 color:white;
 text-decoration:none;
-margin:0 14px;
-font-weight:600;
+font-weight:500;
 transition:0.3s;
 }
 
-nav a:hover{
+nav ul li a:hover{
 color:#4caf50;
+}
+
+/* HAMBURGER */
+.menu-toggle{
+display:none;
+font-size:26px;
+color:white;
+cursor:pointer;
 }
 
 /* HERO */
@@ -57,14 +80,15 @@ display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
-color:white;
 text-align:center;
-animation:fadeIn 1s ease-in-out;
+color:white;
+padding:20px;
 }
 
 .hero h1{
 font-size:60px;
 margin-bottom:20px;
+animation:fadeIn 1s ease;
 }
 
 .hero p{
@@ -84,67 +108,71 @@ transition:0.3s;
 }
 
 .hero button:hover{
-background:#2e7d32;
-transform:scale(1.05);
+transform:scale(1.1);
 }
 
-/* SECTION CARD */
+/* SECTION */
 section{
 max-width:1000px;
-margin:60px auto;
+margin:120px auto 60px auto;
 padding:40px;
 background:white;
 border-radius:20px;
-box-shadow:0 20px 40px rgba(0,0,0,0.1);
-animation:fadeUp 0.8s ease-in-out;
+box-shadow:0 15px 40px rgba(0,0,0,0.08);
+opacity:0;
+transform:translateY(40px);
+transition:1s;
+}
+
+section.show{
+opacity:1;
+transform:translateY(0);
+}
+
+body.dark section{
+background:#1c1c1c;
 }
 
 h1{
+margin-bottom:20px;
+color:#2e7d32;
 text-align:center;
-margin-bottom:25px;
-color:#2e7d32;
-}
-
-h2{
-margin-top:30px;
-color:#2e7d32;
-}
-
-p{
-margin-top:10px;
-line-height:1.7;
 }
 
 img{
 width:100%;
 border-radius:15px;
-margin:25px 0;
+margin:20px 0;
 }
 
 /* TIMELINE */
 .timeline{
 border-left:3px solid #4caf50;
 padding-left:20px;
-margin-top:30px;
+margin-top:20px;
 }
 
-.timeline div{
-margin-bottom:20px;
+/* QUIZ */
+.quiz button{
+margin-top:10px;
+padding:10px 20px;
+border:none;
+background:#4caf50;
+color:white;
+cursor:pointer;
+border-radius:5px;
 }
 
-/* PROFILE */
-.profile{
+/* COUNTERS */
+.counter{
+font-size:40px;
+font-weight:bold;
+color:#4caf50;
 text-align:center;
-padding:80px 20px;
+margin:20px 0;
 }
 
-.profile img{
-width:160px;
-border-radius:50%;
-margin-bottom:20px;
-}
-
-/* DARK BUTTON */
+/* TOGGLE BUTTON */
 .toggle-btn{
 position:fixed;
 right:20px;
@@ -157,13 +185,33 @@ color:white;
 cursor:pointer;
 }
 
+/* MOBILE */
+@media(max-width:768px){
+nav ul{
+position:absolute;
+top:60px;
+right:0;
+background:#111;
+flex-direction:column;
+width:200px;
+display:none;
+}
+
+nav ul.active{
+display:flex;
+}
+
+nav ul li{
+margin:15px;
+}
+
+.menu-toggle{
+display:block;
+}
+}
+
 /* ANIMATIONS */
 @keyframes fadeIn{
 from{opacity:0;}
 to{opacity:1;}
-}
-
-@keyframes fadeUp{
-from{opacity:0;transform:translateY(30px);}
-to{opacity:1;transform:translateY(0);}
 }
