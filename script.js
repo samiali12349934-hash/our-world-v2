@@ -1,69 +1,55 @@
-/* ============================= */
-/* Chat Functionality */
-/* ============================= */
-function sendMessage() {
-    const input = document.getElementById("message-input");
-    const text = input.value.trim();
-    if(!text) return;
-
-    const message = document.createElement("div");
-    message.textContent = text;
-    message.style.padding = "10px";
-    message.style.margin = "5px";
-    message.style.background = "#c8e6c9";
-    message.style.borderRadius = "8px";
-
-    document.getElementById("chat-messages").appendChild(message);
-    input.value = "";
-
-    // Scroll to bottom
-    document.getElementById("chat-messages").scrollTop = document.getElementById("chat-messages").scrollHeight;
+// Dark mode
+function toggleDark(){
+document.body.classList.toggle("dark");
 }
 
-/* ============================= */
-/* Dark Mode Permanent Toggle */
-/* ============================= */
+// Hamburger
+const toggle = document.querySelector(".menu-toggle");
+const navLinks = document.querySelector("nav ul");
 
-// Get stored theme from localStorage
-let storedTheme = localStorage.getItem("theme");
-
-// Apply stored theme
-if(storedTheme){
-    document.body.classList.add(storedTheme);
+if(toggle){
+toggle.addEventListener("click",()=>{
+navLinks.classList.toggle("active");
+});
 }
 
-// Update button text based on current theme
-const themeBtn = document.getElementById("theme-toggle");
-if(themeBtn){
-    themeBtn.textContent = document.body.classList.contains("dark") ? "☀️ Light Mode" : "🌙 Dark Mode";
+// Scroll reveal
+const sections = document.querySelectorAll("section");
 
-    themeBtn.onclick = () => {
-        document.body.classList.toggle("dark");
+window.addEventListener("scroll",()=>{
+sections.forEach(sec=>{
+const top = sec.getBoundingClientRect().top;
+if(top < window.innerHeight - 100){
+sec.classList.add("show");
+}
+});
+});
 
-        // Save theme to localStorage
-        if(document.body.classList.contains("dark")){
-            localStorage.setItem("theme", "dark");
-            themeBtn.textContent = "☀️ Light Mode";
-        } else {
-            localStorage.setItem("theme", ""); // empty = light mode
-            themeBtn.textContent = "🌙 Dark Mode";
-        }
-    }
+// Quiz function
+function checkAnswer(answer){
+if(answer === "correct"){
+alert("Correct! 🎉");
+}else{
+alert("Wrong answer ❌");
+}
 }
 
-/* ============================= */
-/* Music Toggle */
-/* ============================= */
-const musicBtn = document.getElementById("music-toggle");
-const music = document.getElementById("background-music");
-if(musicBtn && music){
-    musicBtn.onclick = () => {
-        if(music.paused){
-            music.play();
-            musicBtn.textContent = "⏸️ Pause Music";
-        } else {
-            music.pause();
-            musicBtn.textContent = "▶️ Music";
-        }
-    }
+// Counter animation
+const counters = document.querySelectorAll(".counter");
+
+counters.forEach(counter=>{
+counter.innerText="0";
+const update=()=>{
+const target=+counter.getAttribute("data-target");
+const c=+counter.innerText;
+const increment=target/200;
+
+if(c<target){
+counter.innerText=Math.ceil(c+increment);
+setTimeout(update,10);
+}else{
+counter.innerText=target;
 }
+};
+update();
+});
