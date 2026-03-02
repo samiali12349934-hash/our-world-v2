@@ -1,28 +1,24 @@
-/* ============================= */
-/* GLOBAL SETTINGS */
-/* ============================= */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #eef2f3, #ffffff);
     color: #222;
+    transition: 0.3s;
 }
 
-/* ============================= */
-/* NAVIGATION BAR */
-/* ============================= */
+/* NAV */
 nav {
-    background: #222;
-    padding: 15px;
+    background: #111;
+    padding: 18px;
     text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
 nav a {
     color: white;
+    margin: 0 14px;
     text-decoration: none;
-    margin: 0 12px;
-    font-weight: bold;
-    font-size: 16px;
+    font-weight: 600;
     transition: 0.3s;
 }
 
@@ -30,81 +26,29 @@ nav a:hover {
     color: #4caf50;
 }
 
-/* ============================= */
-/* HERO / HOME PAGE */
-.hero {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color: white;
-    text-shadow: 1px 1px 4px #000;
-    background: url('images/world-hero.jpg') center/cover no-repeat;
-}
-
-.hero h1 {
-    font-size: 48px;
-    margin-bottom: 20px;
-}
-
-.hero button {
-    padding: 15px 30px;
-    font-size: 20px;
-    background: #388e3c;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    color: white;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.hero button:hover {
-    background: #2e7d32;
-}
-
-/* ============================= */
-/* MAIN SECTION / PROTOCOLS */
+/* SECTION CARD */
 section {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 25px;
+    max-width: 950px;
+    margin: 50px auto;
+    padding: 35px;
     background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    animation: fadeIn 0.8s ease-in-out;
 }
 
-h1 { text-align: center; margin-bottom: 25px; color:#2e7d32; }
-h2 { color:#2e7d32; margin-top:25px; }
-p { line-height:1.7; margin:10px 0; font-size:16px; }
-img { display:block; max-width:100%; margin:20px auto; border-radius:10px; box-shadow:0 4px 8px rgba(0,0,0,0.1); }
-
-/* ============================= */
-/* BUTTONS */
-button {
-    padding: 12px 25px;
-    font-size:16px;
-    border:none;
-    border-radius:6px;
-    cursor:pointer;
-    background:#388e3c;
-    color:white;
-    font-weight:bold;
-    transition:0.3s;
+h1 {
+    text-align: center;
+    color: #2e7d32;
 }
 
-button:hover {
-    background:#2e7d32;
+img {
+    width: 100%;
+    border-radius: 12px;
+    margin: 25px 0;
 }
 
-/* ============================= */
-/* RESPONSIVE */
-@media (max-width:768px){
-    nav a { display:block; margin:8px 0; }
-    section { margin:20px; padding:15px; }
-    .hero h1 { font-size:32px; }
-    .hero button { font-size:16px; }
-    h1 { font-size:28px; }
-    h2 { font-size:20px; }
-    p { font-size:14px; }
+@keyframes fadeIn {
+    from {opacity:0; transform:translateY(20px);}
+    to {opacity:1; transform:translateY(0);}
 }
